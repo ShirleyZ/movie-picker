@@ -1,0 +1,11 @@
+= Movie Picker To Do
+
+= Core Features
+[ ] Random number gen to select movie from list
+[ ] Randomly select from within a genre
+[ ] 
+
+= Nice to Haves
+[ ] List of movies
+[ ] Google sheets api
+[ ] 

@@ -1,0 +1,16 @@
+div {
+	border: 1px solid black;
+	padding: 20px;
+	margin: 5px auto;
+	min-width: 500px;
+	width:70%;
+}
+
+.wip {
+	background-color: #9c9c9c;
+	color: #ffffff;
+}
+
+.wip:before {
+	content: "this doesn't work ";
+}
