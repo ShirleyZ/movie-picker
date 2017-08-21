@@ -2,12 +2,12 @@ init();
 
 function init() {
 	app = {
-		movies: []
+		movies: [],
+		genres: []
 	};
 
-
 	cons = {
-		movieFields: ["name", "runtime", "genreOne", "genreTwo"]
+		movieFields: ["name", "runtime", "genre-one", "genre-two"]
 	}
 
 }
@@ -96,10 +96,56 @@ function parseCsvMovieList() {
 
 	app.movies = parsedObj;
 
+	parseGenresFromMovieList();
 	drawList();
 
 	console.log("== Movies from csv");
 	console.log(app.movies);
 
 	return parsedObj;
+}
+
+function parseGenresFromMovieList() {
+	console.log("=== On parseGenresFromMovieList")
+	var movies = app.movies;
+	var genreIndexes = [];
+	var genres = {};
+
+	// Gets which indexes to access to get all genres for a movie
+	for (let i = 0; i < cons.movieFields.length; i++) {
+		let splitFieldName = cons.movieFields[i].split('-');
+		if (splitFieldName[0] == "genre") {
+			genreIndexes.push(cons.movieFields[i]);
+		}
+	}
+
+	console.log("Genre indexes:");
+	console.log(genreIndexes);
+
+	// Iterate through a movie and pull out unique genres
+	for (let i = 0; i < movies.length; i++) {
+		let currMovie = movies[i];
+		console.log("= Movie: "+currMovie["name"]);
+
+		for (let j = 0; j < genreIndexes.length; j++) {
+			let genreIndex = genreIndexes[j];
+
+			// Using object to use .hasOwnProperty, since js
+			//	doesn't have vanilla check in array func
+			if (!genres.hasOwnProperty(currMovie[genreIndex])) {
+				console.log(currMovie[genreIndex]+" doesn't exist. Adding");
+				genres[currMovie[genreIndex]] = true;
+			} else {
+				console.log(currMovie[genreIndex]+" exists");
+			}
+
+		}
+
+	}
+	console.log("genres object");
+	console.log(genres);
+
+	app.genres = Object.keys(genres);
+	console.log("= Genres are");
+	console.log(app.genres);
 }
