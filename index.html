@@ -12,17 +12,35 @@
 			<button onclick="getRandomMovie()">Submit</button>
 		</div>
 		<div class="wip">
-			Genre 1:
-			Genre 2:
-
-			Longest time:
-
+			<form>
+				<label for="genreOne">Genre 1:</label>
+				<select name="genreOne">
+					<option>Populating...</option>
+				</select>
+				<br>
+				<label for="genreTwo">Genre 2:</label>
+				<select name="genreTwo">
+					<option>Populating...</option>
+				</select>
+				<br>
+				<label for="longestMovieTime">
+					Longest time:
+				</label>
+				<input type="number" name="longestMovieTime">
+				<br>
+				<button type="button">Get me a movie</button>
+	
+			</form>
+			
 		</div>
 		<div class="wip">
-			Results:
-			<ul>
-				<li></li>
-			</ul>
+			<p>CSV List (Name, Runtime, Genre 1, Genre 2):</p>
+			<button type="button" onclick="parseCsvMovieList();">Look</button>
+			<textarea 
+				name="movieList" 
+				id="movieList"
+				style="width: 100%; min-width: 500px; min-height: 150px;"
+				placeholder="A Monster in Paris, 90, Fantasy, Adventure"></textarea>
 		</div>
 	</body>
 </html>
