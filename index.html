@@ -35,10 +35,15 @@
 		</div>
 		<div class="wip">
 			<p>CSV List (Name, Runtime, Genre 1, Genre 2):</p>
+			<div id="movieList">
+				<table id="movieTable">
+					
+				</table>
+			</div>
 			<button type="button" onclick="parseCsvMovieList();">Look</button>
 			<textarea 
-				name="movieList" 
-				id="movieList"
+				name="csvInput" 
+				id="csvInput"
 				style="width: 100%; min-width: 500px; min-height: 150px;"
 				placeholder="A Monster in Paris, 90, Fantasy, Adventure"></textarea>
 		</div>
